@@ -67,17 +67,18 @@ public class Vehicle {
 
     public boolean stillFlying() {
         // return true if altitude is positive
-        return false;
+        return this.Altitude > 0;
     }
     public boolean outOfFuel() {
         // return true if fuel is less than or equal to zero
-        return true;
+        return this.Fuel <=0;
     }
 
     public DescentEvent getStatus(int tick) {
         // create a return a new DescentEvent object
         // filled in with the state of the vehicle.
-        return null;
+        checkFinalStatus();
+        return new DescentEvent(tick, this.Velocity, this.Altitude, this.Fuel, this.Flying);
     }
 
 }
